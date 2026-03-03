@@ -1,0 +1,421 @@
+/* ==================== style.css ==================== */
+/* Mobile-first design */
+
+:root {
+    --primary: #e76f51;
+    --accent: #2a9d8e;
+    --dark: #264653;
+    --light: #f4f1ea;
+    --gray: #6b705c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =============================================
+    HEADER - Logo scrolls, only nav is sticky
+   ============================================= */
+
+header.main-header {
+    background: white;
+    padding: 1.5rem 0 0.5rem 0;
+    position: relative;
+    z-index: 90;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--dark);
+    white-space: nowrap;
+}
+
+.logo-icon {
+    font-size: 2.6rem;
+    line-height: 1;
+}
+
+/* ── Sticky Navigation Bar ──────────────────────────────────────── */
+nav.sticky-nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    padding: 0.9rem 0;
+
+    opacity: 0.8;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.6rem;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav.sticky-nav a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+nav.sticky-nav a:hover,
+nav.sticky-nav a:focus {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* ── Mobile adjustments ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .logo {
+        font-size: 1.7rem;
+    }
+    .logo-icon {
+        font-size: 2.3rem;
+    }
+    nav.sticky-nav {
+        padding: 0.75rem 0;
+    }
+    .nav-container {
+        gap: 0.7rem 1.2rem;
+    }
+    nav.sticky-nav a {
+        font-size: 0.93rem;
+        padding: 0.45rem 0.9rem;
+    }
+}
+
+/* ── Tablet ─────────────────────────────────────────────────────── */
+@media (min-width: 641px) and (max-width: 1023px) {
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 1.5rem;
+    }
+
+    nav.sticky-nav {
+        padding: 1rem 0;
+    }
+
+    nav.sticky-nav a {
+        font-size: 1.05rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+/* ── Desktop ────────────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+    .header-content {
+        padding: 0 2rem;
+    }
+
+    .logo {
+        font-size: 2.1rem;
+    }
+    .logo-icon {
+        font-size: 2.8rem;
+    }
+
+    nav.sticky-nav {
+        padding: 1.1rem 0;
+    }
+
+    .nav-container {
+        gap: 0.8rem 2rem;
+    }
+
+    nav.sticky-nav a {
+        font-size: 1.1rem;
+        padding: 0.7rem 1.4rem;
+        border-radius: 9999px; /* pill shape on wide screens */
+    }
+}
+
+/* HERO */
+.hero {
+    height: 65vh;
+    min-height: 420px;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-overlay {
+    width: 100%;
+}
+
+.hero-text h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(231, 111, 81, 0.4);
+}
+
+/* OFFERS */
+.offers {
+    background: linear-gradient(135deg, #fffaf0, #f4e4d5);
+    padding: 70px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+    color: var(--dark);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    width: 80px;
+    height: 3px;
+    background: var(--primary);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.offer-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.offer-card:hover {
+    transform: translateY(-10px);
+}
+
+.offer-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #e63939;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.offer-card h3 {
+    font-size: 1.45rem;
+    margin: 10px 0;
+    color: var(--dark);
+}
+
+.offer-card p {
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.price .old {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.1rem;
+    margin-right: 12px;
+}
+
+.price .new {
+    color: var(--primary);
+}
+
+/* MENU SECTIONS */
+.menu-section {
+    padding: 70px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.menu-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    transition: all 0.3s;
+}
+
+.menu-item:hover {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    transform: scale(1.02);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.item-info {
+    padding: 22px;
+}
+
+.item-info h3 {
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+    color: var(--dark);
+}
+
+.item-info p {
+    color: var(--gray);
+    font-size: 0.97rem;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+}
+
+/* FOOTER */
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.95rem;
+}
+
+footer p {
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.small {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* ===================== RESPONSIVE ===================== */
+/* Tablet & larger */
+@media (min-width: 768px) {
+    .offers-grid,
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-text h2 {
+        font-size: 3.8rem;
+    }
+
+    nav {
+        gap: 8px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .offers-grid,
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .header-content {
+        padding: 18px 40px;
+    }
+
+    .menu-item img {
+        height: 240px;
+    }
+}
+
+/* Extra large */
+@media (min-width: 1280px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
